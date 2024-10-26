@@ -26,8 +26,9 @@ The Real-Time Data Processing System for Weather Monitoring is designed to conti
 1. Clone the git repository using:
    ```bash
    git clone  https://github.com/sachinmallabade/Weather-Monitor-Application.git
+   
 2. Open the RuleEngineApp folder in STS(spring tool suite)
-3.Create a database in MySQL named as rule_engine_db
+3. Create a database in MySQL named as rule_engine_db
 4.Run a Project as Spring Boot App
 5.Open the command prompt and redirect to rule-engine-ui folder
 6.make sure that you have installed node js

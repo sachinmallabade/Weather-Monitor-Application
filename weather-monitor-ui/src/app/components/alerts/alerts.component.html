@@ -1,0 +1,16 @@
+<div class="alerts-container" *ngIf="paginatedAlerts.length > 0">
+  <h2>Past Alerts</h2>
+  <ul>
+    <li *ngFor="let alert of paginatedAlerts">{{ alert }}</li>
+  </ul>
+
+  <!-- Pagination Controls -->
+  <div class="pagination">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>
+<div *ngIf="paginatedAlerts.length === 0">
+  <p>No alerts to display.</p>
+</div>

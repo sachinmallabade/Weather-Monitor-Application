@@ -1,0 +1,72 @@
+/* Styles for the alerts component */
+.alerts-container {
+  background-color: #f9f9f9; /* Light background for the alerts section */
+  border: 1px solid #ddd;    /* Subtle border */
+  border-radius: 8px;        /* Rounded corners */
+  padding: 20px;             /* Padding around the content */
+  margin: 20px 0;            /* Margin to separate from other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+h2 {
+  color: #d9534f; /* Bootstrap danger color for headings */
+  font-size: 1.5rem; /* Size of the heading */
+  margin-bottom: 15px; /* Space below the heading */
+}
+
+ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;            /* Remove default padding */
+}
+
+li {
+  background-color: #fff; /* White background for each alert */
+  border: 1px solid #ddd; /* Border around each alert */
+  border-radius: 4px;     /* Rounded corners for alerts */
+  padding: 10px;          /* Padding for alert items */
+  margin-bottom: 10px;    /* Space between alerts */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+li:hover {
+  background-color: #f0f0f0; /* Change background on hover */
+}
+
+p {
+  color: #777; /* Grey color for the 'No alerts' message */
+  font-size: 1.2rem; /* Size for the 'No alerts' message */
+  text-align: center; /* Center the message */
+  margin-top: 20px; /* Space above the message */
+}
+
+
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center; /* Center the pagination controls */
+  align-items: center;
+}
+
+.pagination button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 5px; /* Space between buttons */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:disabled {
+  background-color: #ccc; /* Disabled button color */
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.pagination span {
+  margin: 0 10px; /* Space around the text */
+}

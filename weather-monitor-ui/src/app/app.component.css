@@ -1,0 +1,73 @@
+/* Toolbar Styles */
+mat-toolbar {
+  background-color: #1976d2; /* Primary color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 0 20px; /* Horizontal padding */
+}
+
+mat-toolbar span {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.spacer {
+  flex: 1; /* Fills the space between items */
+}
+
+/* Navigation Links */
+mat-toolbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px; /* Spacing between links */
+  position: relative; /* Positioning for animation */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+mat-toolbar a.active {
+  color: #ffeb3b; /* Active link color */
+  font-weight: bold; /* Emphasize the active link */
+}
+
+/* Add an underline animation on hover */
+mat-toolbar a:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px; /* Positioning below the link */
+  height: 2px; /* Height of the underline */
+  background-color: #ffeb3b; /* Underline color */
+  transform: scaleX(0); /* Start from 0 width */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+mat-toolbar a:hover::after {
+  transform: scaleX(1); /* Scale to full width on hover */
+}
+
+/* Content Styles */
+.content {
+  padding: 20px; /* Padding for the content area */
+  background-color: #f4f4f4; /* Light background color for contrast */
+  min-height: 100vh; /* Ensures the content takes full height */
+}
+
+/* Animation for content transitions */
+.router-transition {
+  transition: opacity 0.5s ease; /* Fade effect for content */
+  opacity: 0; /* Start invisible */
+}
+
+.router-transition.ng-enter,
+.router-transition.ng-leave {
+  opacity: 1; /* Fade out */
+}
+
+.router-transition.ng-enter-active {
+  opacity: 1; /* Fade in */
+}
+
+.router-transition.ng-leave-active {
+  opacity: 0; /* Fade out */
+}

@@ -1,0 +1,36 @@
+<div class="navbar">
+  <button (click)="switchView('allSummaries')" [class.active]="currentView === 'allSummaries'">All Daily Summaries</button>
+  <button (click)="switchView('dailySummary')" [class.active]="currentView === 'dailySummary'">Daily Summary</button>
+</div>
+
+<div class="content" *ngIf="currentView === 'allSummaries'">
+  <h2>All Daily Summaries</h2>
+  <div *ngIf="dailySummaries && dailySummaries.length > 0; else noData">
+    <div *ngFor="let summary of dailySummaries" class="weather-summary" [ngClass]="getConditionClass(summary.dominantCondition)">
+      <h3>Date: {{ summary.date }}</h3>
+      <p><strong>Average Temperature:</strong> {{ summary.averageTemperature | number: '1.1-1' }}°C</p>
+      <p><strong>Max Temperature:</strong> {{ summary.maxTemperature | number: '1.1-1' }}°C</p>
+      <p><strong>Min Temperature:</strong> {{ summary.minTemperature | number: '1.1-1' }}°C</p>
+      <p><strong>Dominant Condition:</strong> {{ summary.dominantCondition }}</p>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>No weather summaries available.</p>
+  </ng-template>
+</div>
+
+<div class="content" *ngIf="currentView === 'dailySummary'">
+  <h2>Daily Summary</h2>
+  <div class="date-input-container">
+    <label for="date" class="date-label">Select Date</label>
+  <input type="date" [(ngModel)]="selectedDate" (change)="fetchDailySummaryByDate()" placeholder="Select Date"  class="date-input" id="date" required/>
+</div>
+  <div *ngIf="selectedDateSummary" class="weather-summary" [ngClass]="getConditionClass(selectedDateSummary.dominantCondition)">
+    <h3>Date: {{ selectedDateSummary.date }}</h3>
+    <p><strong>Average Temperature:</strong> {{ selectedDateSummary.averageTemperature | number: '1.1-1' }}°C</p>
+    <p><strong>Max Temperature:</strong> {{ selectedDateSummary.maxTemperature | number: '1.1-1' }}°C</p>
+    <p><strong>Min Temperature:</strong> {{ selectedDateSummary.minTemperature | number: '1.1-1' }}°C</p>
+    <p><strong>Dominant Condition:</strong> {{ selectedDateSummary.dominantCondition }}</p>
+  </div>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</div>

@@ -1,0 +1,12 @@
+
+<mat-toolbar color="primary">
+    <span>Weather Monitoring System</span>
+    <span class="spacer"></span>
+    <a mat-button routerLink="/weather/all-daily-summaries" routerLinkActive="active">Weather</a>
+    <a mat-button routerLink="/alerts" routerLinkActive="active">Alerts</a>
+    <a mat-button routerLink="/summary" routerLinkActive="active">Summary</a>
+  </mat-toolbar>
+  
+  <div class="content">
+    <router-outlet class="router-transition"></router-outlet>
+</div>

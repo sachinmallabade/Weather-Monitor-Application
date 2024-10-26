@@ -1,0 +1,26 @@
+<div class="weather-container">
+  <h1>Search City Weather</h1>
+  <div class="input-container">
+    <input type="text" [(ngModel)]="city" placeholder="Enter city name" />
+    <button (click)="fetchWeather()" [@buttonClick]="buttonState">Get Weather</button>
+  </div>
+
+  <div *ngIf="weatherData" class="weather-data" @fadeIn>
+    <p><strong>Main Condition:</strong> {{ weatherData.maincondition }}</p>
+    <p><strong>Temperature:</strong> {{ weatherData.temperature }}°C</p>
+    <p><strong>Feels Like:</strong> {{ weatherData.feelslike }}°C</p>
+    <p *ngIf="weatherData.timestamp != null"><strong>Timestamp:</strong> {{ weatherData.timestamp }}</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message" @fadeIn>
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="alerts.length > 0" class="alerts-container" @fadeIn>
+    <h4>Alerts</h4>
+    <ul>
+      <li *ngFor="let alert of alerts">{{ alert }}</li>
+    </ul>
+  </div>
+
+  
